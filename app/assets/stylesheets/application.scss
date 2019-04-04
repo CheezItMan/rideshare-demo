@@ -1,0 +1,163 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+/* Import scss content */
+@import "**/*";
+
+
+/* Layout content */
+
+.person-list {
+  display: grid;
+  grid-template-columns: 170px 120px 200px 200px;
+  font-size: 1.5rem;
+  grid-row-gap: 10px;
+}
+
+.person-list-pagination {
+  grid-column: 1 span 4;
+  text-align: center;
+  width: 690px;
+}
+
+.person-list-pagination-text {
+  text-align: center;
+}
+
+.person-list-avatar {
+  grid-column: 1;
+}
+
+.person-list-name {
+  grid-column: 2;
+}
+
+.person-list-details {
+  grid-column: 3;
+}
+
+.person-list-edit-delete {
+  grid-column: 4;
+}
+
+.trip-list {
+  margin-top: 40px;
+}
+
+.trip-header {
+  width: 600px;
+}
+
+.trip-details-header-text {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.trip-form {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-gap: 10px;
+}
+
+.driver-form-header {
+  width: 600px;
+  text-align: center;
+}
+
+.driver-form-title {
+  font-size: 1.5em;
+}
+
+.driver-form {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-gap: 10px;
+}
+
+.passenger-form-phone {
+  display: grid;
+  grid-template-columns: 200px 250px;
+}
+
+
+.passenger-form-name {
+  display: grid;
+  grid-template-columns: 200px 250px;
+}
+
+.passenger-form-phone-text-field,
+.passenger-form-name-text-field {
+  width: 250px;
+}
+
+
+.mb-1 {
+  background-color: #4285f4;
+}
+
+h2,
+h3 {
+  font-size: 0.9em;
+}
+
+label {
+  font-weight: bolder;
+  color: navy;
+}
+
+.pagination,
+.pagination::before,
+pagination::after {
+  display: inline;
+}
+
+.driver-list ul,
+.driver-list li,
+.driver-list li section,
+.driver-list li section h2 {
+  display: inline;
+}
+
+span.page,
+span.current,
+.pagination a,
+.pagination button {
+  display: inline;
+}
+
+.driver-picture {
+  display: inline-block;
+}
+
+.form-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: navy;
+  text-align: center;
+}
+
+section.driver {
+  margin: 5px;
+}
+
+.submit-btn {
+  text-align: center;
+}
+
+main {
+  margin: 20px;
+}
