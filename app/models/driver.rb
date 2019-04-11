@@ -7,7 +7,9 @@ class Driver < ApplicationRecord
   scope :available, -> { active }
 
   def average_rating
-    return 1
+    return 0 if self.trips.count == 0
+
+    return self.trips.sum(:rating) / self.trips.count.to_f
   end
 
   def make_and_model

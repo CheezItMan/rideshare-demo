@@ -1,6 +1,6 @@
 <h1><%= @driver.name %></h1>
 <h2> Car: <%= @driver.make_and_model %></h2>
-<h2>Average Rating: <%= @driver.average_rating %></h2>
+<h2>Average Rating: <%= number_with_precision(@driver.average_rating, precision: 2) %></h2>
 <%= driver_activate_button(@driver) %>
 <section class="trip-details row">
   <h2 class="trip-details-header-text">Driver Trips</h2>
