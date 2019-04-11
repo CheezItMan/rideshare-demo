@@ -13,6 +13,11 @@ class Passenger < ApplicationRecord
 
     # Find an available driver and create a trip with them, if possible
     driver = Driver.available.sample
+
+    if driver.nil?
+      raise RideRequestError.new("Passenger cannot currently request rides")
+    end
+
     trips.create(passenger: self,
                  driver: driver,
                  date: Date.today,
