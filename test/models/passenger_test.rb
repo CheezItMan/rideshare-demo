@@ -53,12 +53,39 @@ describe Passenger do
 
     describe "request_ride!" do
       it "can request a ride if not on a trip" do
+        trips_before = passenger.trips.count
+        passenger.request_ride!
+
+        expect(trips_before).must_equal passenger.trips.count - 1
       end
 
       it "will raise RideRequestError if already on a trip" do
+        passenger.request_ride!
+        trips_before = passenger.trips.count
+
+        expect {
+          passenger.request_ride!
+        }.must_raise Passenger::RideRequestError
+
+        expect(trips_before).must_equal passenger.trips.count
       end
 
       it "will raise a RideRequestError if all drivers are busy" do
+        # Arrange
+        Driver.all.each do |driver|
+          driver.active = false
+          driver.save
+        end
+
+        trips_before = passenger.trips.count
+        expect {
+          # Act
+          passenger.request_ride!
+
+          # Assert
+        }.must_raise Passenger::RideRequestError
+
+        expect(trips_before).must_equal passenger.trips.count
       end
     end
 
