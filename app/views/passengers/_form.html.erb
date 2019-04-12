@@ -1,3 +1,12 @@
+<% if @passenger && @passenger.errors.any? %>
+  <ul class="errors">
+    <% @passenger.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <section class="passenger-form form">
   <%= form_for @passenger do |f| %>
     <div class="passenger-form__name">

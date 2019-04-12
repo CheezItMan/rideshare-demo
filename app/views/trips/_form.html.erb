@@ -1,3 +1,12 @@
+<% if @trip && @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <section class="trip form">
   <%= form_for @trip, url: url, html: {class: "trip-form"} do |f| %>
     <div class="trip-form-date">

@@ -16,7 +16,7 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
     else
-      redirect_back(fallback_location: edit_trip_path(@trip.id))
+      render :edit
     end
   end
 

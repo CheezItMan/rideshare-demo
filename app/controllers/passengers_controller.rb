@@ -13,13 +13,12 @@ class PassengersController < ApplicationController
   end
 
   def create
-    passenger = Passenger.new(passenger_params)
+    @passenger = Passenger.new(passenger_params)
 
-    if passenger.save
+    if @passenger.save
       redirect_to passengers_path
     else
-      flash[:alert] = "Unable to create a passenger"
-      redirect_back(fallback_location: new_passenger_path)
+      render :new
     end
   end
 
@@ -33,8 +32,7 @@ class PassengersController < ApplicationController
     if @passenger.save
       redirect_to passenger_path(@passenger.id)
     else
-      flash[:alert] = "Unable to update a passenger with id: #{params[:id]}"
-      redirect_back(fallback_location: edit_passenger_path(params[:id]))
+      render :edit
     end
   end
 
