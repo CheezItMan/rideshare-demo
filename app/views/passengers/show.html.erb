@@ -1,22 +1,22 @@
 <section class="passenger-header">
-  <section class="passenger-avatar-wrapper">
+  <section class="passenger-header__avatar--wrapper">
     <%= image_tag "https://placeimg.com/150/150/people", alt: @passenger.name, class: "passenger"%>
   </section>
-  <section class="passenger-header-name-wrapper">
+  <section class="passenger-header__name-wrapper">
     <h2><%= @passenger.name %></h1>
   </section>
-  <section class="passenger-header-phone-wrapper">
-    <h2> Phone #: <%= @passenger.phone_number %></h2>
+  <section class="passenger-header__phone-wrapper">
+    <h3> Phone #: <%= @passenger.phone_number %></h3>
   </section>
 </section>
-<section class="passenger-request-btn-wrapper">
+<section class="passenger-header__request-btn--wrapped">
 <% if @passenger.can_request? %>
   <%= button_to "Request ride", passenger_trips_path(@passenger), method: :post, class: "button success" %>
 <% end %>
 </section>
 <%= passenger_trip_action_button(@passenger) %>
-<section class="trip-list-wrapper">
-  <h2 class="trip-details-header-text">Trips</h2>
+<section class="trip-list">
+  <h2 class="trip-list__header-text">Trips</h2>
   <%= render partial: "shared/trip_list", locals: {trips: @passenger.trips.order(:date)} %>
 </section>
 <p>

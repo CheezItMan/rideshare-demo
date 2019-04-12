@@ -1,24 +1,24 @@
 <h1>Rideshare Drivers</h1>
 <article class="person-list">
-  <section class="person-list-pagination">
-<h3 class="person-list-pagination-text"><%= paginate @drivers %></h3>
+  <section class="person-list__pagination">
+<h3 class="person-list__pagination-text"><%= paginate @drivers %></h3>
   </section>
   <% @drivers.each do |driver| %>
-  <aside  class="person-list-avatar">
-    <%= image_tag "https://placeimg.com/150/150/people", alt: driver.name, class: "driver"%>
+  <aside  class="person-list__avatar">
+    <%= link_to random_profile_pic(driver), driver_path(driver.id) %>
   </aside>
-  <section class="person-list-name">
+  <section class="person-list__name">
     <h2>
       <%= link_to driver.name, driver_path(driver.id) %>
     </h2>
   </section>
-  <section class="person-list-details">
+  <section class="person-list__details">
     <h3>
       Average Rating: 
       <%= number_with_precision(driver.average_rating, precision: 2) %>
     </h3>
   </section>
-  <section class="person-list-edit-delete">
+  <section class="person-list__edit-delete">
     <h3>
       <%= link_to "Edit", edit_driver_path(driver.id) %>
       <%= link_to "Delete", driver_path(driver.id), method: :delete %>

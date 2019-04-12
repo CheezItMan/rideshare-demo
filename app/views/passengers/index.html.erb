@@ -1,21 +1,21 @@
 <h1>Rideshare Passengers</h1>
 <article class="person-list">
-  <section class="person-list-pagination">
+  <section class="person-list__pagination">
     <div><h3><%= paginate @passengers %></h3></div>
   </section>
   <% @passengers.each do |passenger| %>
-  <aside  class="person-list-avatar">
+  <aside  class="person-list__avatar">
     <%= image_tag "https://placeimg.com/150/150/people", alt: passenger.name, class: "passenger"%>
   </aside>
-  <section class="person-list-name">
+  <section class="person-list__name">
     <h2>
       <%= link_to passenger.name, passenger_path(passenger.id) %>
     </h2>
   </section>
-  <section class="person-list-details">
+  <section class="person-list__details">
     &nbsp;
   </section>
-  <section class="person-list-edit-delete">
+  <section class="person-list__edit-delete">
     <h3>
       <%= link_to "Edit", edit_passenger_path(passenger.id) %>
       <%= link_to "Delete", passenger_path(passenger.id), method: :delete %>

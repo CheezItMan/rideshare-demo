@@ -23,33 +23,34 @@
 .person-list {
   display: grid;
   grid-template-columns: 170px 120px 200px 200px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   grid-row-gap: 10px;
+  column-gap: 2rem;
 }
 
-.person-list-pagination {
+.person-list__pagination {
   grid-column: 1 span 4;
   text-align: center;
   width: 690px;
 }
 
-.person-list-pagination-text {
+.person-list__pagination-text {
   text-align: center;
 }
 
-.person-list-avatar {
+.person-list__avatar {
   grid-column: 1;
 }
 
-.person-list-name {
+.person-list__name {
   grid-column: 2;
 }
 
-.person-list-details {
+.person-list__details {
   grid-column: 3;
 }
 
-.person-list-edit-delete {
+.person-list__edit-delete-buttons {
   grid-column: 4;
 }
 
@@ -57,14 +58,24 @@
   margin-top: 40px;
 }
 
-.trip-header {
+.trip-list__header {
   width: 600px;
 }
 
-.trip-details-header-text {
+.trip-list__header-text {
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.trip-details {}
+
+.trip-details__header-text {
   margin-top: 10px;
   font-size: 1.5rem;
   margin-bottom: 10px;
+  text-align: center;
+  display: block;
 }
 
 .trip-form {
@@ -73,14 +84,6 @@
   grid-gap: 10px;
 }
 
-.driver-form-header {
-  width: 600px;
-  text-align: center;
-}
-
-.driver-form-title {
-  font-size: 1.5em;
-}
 
 .driver-form {
   display: grid;
@@ -88,18 +91,47 @@
   grid-gap: 10px;
 }
 
-.passenger-form-phone {
+.driver-form__header {
+  width: 600px;
+  text-align: center;
+}
+
+.driver-form__title {
+  font-size: 1.5em;
+}
+
+.passenger-header {
+  font-size: 1.5rem;
+}
+
+.passenger-header__name-wrapper {
+  font-weight: bolder;
+}
+
+.passenger-header__phone-wrapper {
+  font-size: 1.2rem;
+}
+
+.passenger-form {}
+
+.passenger-form__title {
+  font-size: 2.0rem;
+  font-weight: bold;
+}
+
+
+.passenger-form__phone {
   display: grid;
   grid-template-columns: 200px 250px;
 }
 
 
-.passenger-form-name {
+.passenger-form__name {
   display: grid;
   grid-template-columns: 200px 250px;
 }
 
-.passenger-form-phone-text-field,
+.passenger-form__phone-text-field,
 .passenger-form-name-text-field {
   width: 250px;
 }
@@ -111,7 +143,7 @@
 
 h2,
 h3 {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 label {
@@ -139,7 +171,7 @@ span.current,
   display: inline;
 }
 
-.driver-picture {
+.driver-list__driver-picture {
   display: inline-block;
 }
 
