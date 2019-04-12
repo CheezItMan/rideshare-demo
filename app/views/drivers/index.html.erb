@@ -14,7 +14,8 @@
   </section>
   <section class="person-list-details">
     <h3>
-      Average Rating: <%= driver.average_rating %>
+      Average Rating: 
+      <%= number_with_precision(driver.average_rating, precision: 2) %>
     </h3>
   </section>
   <section class="person-list-edit-delete">

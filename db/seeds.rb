@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require "vinbot"
 require "faker"
 
 CARS = [["Honda", "Accord"], ["Tesla", "Model X"], ["Chevy", "Nova"], ["Honda", "Civic"], ["VW", "Beetle (old)"], ["VW", "Beetle (new)"], ["Chrystler", "PT Cruiser"], ["Ford", "Pinto"]]
@@ -16,7 +15,7 @@ passengers = []
 
 50.times do
   car = CARS.sample
-  driver = Driver.new name: Faker::Movies::LordOfTheRings.character, vin: Vinbot::Vin.generate, car_make: car[0], car_model: car[1], active: rand(100) > 70
+  driver = Driver.new name: Faker::Movies::LordOfTheRings.character, vin: Faker::Number.number(17), car_make: car[0], car_model: car[1], active: rand(100) > 70
 
   while Driver.find_by(name: driver.name) != nil
     driver.name = Faker::Name.name
