@@ -18,8 +18,7 @@ class DriversController < ApplicationController
     if driver.save
       redirect_to drivers_path
     else
-      flash[:alert] = "Unable to save the driver"
-      redirect_back(fallback_location: new_driver_path)
+      render :new
     end
   end
 
@@ -34,8 +33,7 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to driver_path(@driver.id)
     else
-      flash[:alert] = "Cannot update driver #{@driver.id}"
-      redirect_back(fallback_location: driver_path(@driver.id))
+      render :edit
     end
   end
 
