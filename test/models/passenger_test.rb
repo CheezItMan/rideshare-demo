@@ -59,18 +59,25 @@ describe Passenger do
 
     describe "request_ride!" do
       it "can request a ride if not on a trip" do
+        # Arrange
         trips_before = passenger.trips.count
+
+        # Act
         passenger.request_ride!
 
+        # Assert
         expect(trips_before).must_equal passenger.trips.count - 1
       end
 
       it "will raise RideRequestError if already on a trip" do
+        # Arrange
         passenger.request_ride!
         trips_before = passenger.trips.count
 
         expect {
+          # Act
           passenger.request_ride!
+          # Assert
         }.must_raise Passenger::RideRequestError
 
         expect(trips_before).must_equal passenger.trips.count
@@ -84,6 +91,7 @@ describe Passenger do
         end
 
         trips_before = passenger.trips.count
+
         expect {
           # Act
           passenger.request_ride!
@@ -107,6 +115,7 @@ describe Passenger do
       end
 
       it "will return nil if no ongoing trips" do
+        # Assert
         expect(passenger.current_trip).must_equal nil
       end
     end
@@ -114,7 +123,9 @@ describe Passenger do
     describe "complete_trip!" do
       it "will fail if no incomplete trips" do
         expect {
+          # Act
           passenger.complete_trip!(3)
+          # Assert
         }.must_raise Passenger::RideRequestError
       end
 

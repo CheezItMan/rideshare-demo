@@ -26,12 +26,13 @@ describe Trip do
 
   describe "relationships" do
     it "will belong to a driver" do
+      # Assert
       expect(trip).must_respond_to :driver
-
       expect(trip.driver).must_be_instance_of Driver
     end
 
     it "will belong to a passenger" do
+      # Assert
       expect(trip).must_respond_to :passenger
       expect(trip.passenger).must_be_instance_of Passenger
     end
