@@ -3,6 +3,8 @@ class Passenger < ApplicationRecord
 
   validates :name, presence: true
 
+  class RideRequestError < StandardError; end
+
   def can_request?
     trips.ongoing.count == 0
   end
@@ -29,6 +31,9 @@ class Passenger < ApplicationRecord
   end
 
   def complete_trip!(rating)
+    if self.current_trip.nil?
+      raise RideRequestError.new("Passenger cannot currently request rides")
+    end
     current_trip.update(rating: rating)
   end
 end
